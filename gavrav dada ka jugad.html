@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRV Creation | Wedding Album Designer</title>
+    <style>
+        /* --- General Settings --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fdfdfd;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Colorful Header --- */
+        header {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #f1f1f1;
+        }
+
+        /* --- Buttons --- */
+        .btn-primary {
+            background: #ff416c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background 0.3s;
+            border: 2px solid white;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .btn-primary:hover {
+            background: white;
+            color: #ff416c;
+            transform: scale(1.05);
+        }
+
+        .btn-insta {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border: none;
+        }
+
+        .btn-insta:hover {
+            color: white;
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        /* --- Services Section --- */
+        .section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ff4b2b;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid #ff416c;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* --- Portfolio Placeholder --- */
+        .portfolio {
+            background-color: #ffeef2;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background-color: #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #8e2de2, #4a00e0);
+            color: white;
+        }.gallery-item {
+        height: 250px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+        }
+        
+        .gallery-item:hover img {
+        transform: scale(1.08);
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            background: #333;
+            color: white;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            nav ul { display: none; }
+            .logo { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GRV Creation</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>GRV Creation</h1>
+            <p>Yaadein Jo Hamesha Rahein Taaza</p>
+            <p style="font-size: 1rem; margin-top: -10px;">Premium Wedding Album Designing & Editing</p>
+            <br>
+            <a href="#contact" class="btn-primary">Order Now</a>
+            <a href="https://www.instagram.com/grv_creation__?igsh=c3Fwcm9qZWQ3cG1w" target="_blank" class="btn-primary btn-insta">Instagram</a>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title">Hamari Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Wedding Album Design</h3>
+                <p>Karizma, Canvera aur photobook albums ke liye creative layout designs.</p>
+            </div>
+            <div class="service-card">
+                <h3>Photo Retouching</h3>
+                <p>High-end skin smoothing, color correction aur detail enhancement.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cinematic Posters</h3>
+                <p>Couple portraits aur wedding teasers ke liye movie-style posters.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section portfolio" id="portfolio">
+        <h2 class="section-title">Latest Work</h2>
+        
+        <div class="gallery-grid">
+        <div class="gallery-item">
+        <img src="p1.jpg" alt="Wedding Album Design">
+        </div>
+        <div class="gallery-item">
+        <img src="p2.jpg" alt="Couple Portrait">
+        </div>
+        <div class="gallery-item">
+        <img src="p3.jpg" alt="Album Cover">
+        </div>
+        <div class="gallery-item">
+        <img src="p4.jpg" alt="Pre Wedding Edit">
+        </div>
+        <div class="gallery-item">
+        <img src="p5.jpg" alt="Creative Layout">
+        </div>
+        <div class="gallery-item">
+        <img src="https://drive.google.com/file/d/1rR2OS2DfYUKBd6Wimg41YNQXRW_WjJa3/view?usp=drivesdk" alt="Retouching Work">
+        </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <h2 class="section-title" style="color: white;">Contact Karein</h2>
+        <div class="contact-info">
+            <p><strong>Phone:</strong> +919584755702 </p>
+            <p><strong>Email:</strong> gauravalone95@email.com</p>
+            <p><strong>Location:</strong> India</p>
+            <br>
+            <a href="#" class="btn-primary" style="background: #25d366; border-color: #25d366;">WhatsApp Chat</a>
+            <a href="https://www.instagram.com/grv_creation__?igsh=c3Fwcm9qZWQ3cG1w" target="_blank" class="btn-primary btn-insta">Instagram Page</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 GRV Creation. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
